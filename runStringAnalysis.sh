@@ -35,7 +35,7 @@ decompile(){
 }
 
 echo "Don't forget to set the paths in settings.sh :D"
-echo "1 - run all, 2 - only run class generator, 3 - only run string analysis, 4 - run all on apps in one root dir, 5 - run only String Analysis in one root dir, 6 - jadk decompile in one root dir"
+echo "1 - run all for one app, 2 - only run class generator for one app, 3 - only run string analysis, 4 - run all on apps in one root dir, 5 - run only String Analysis in one root dir, 6 - jadk decompile in one root dir"
 
 read option
 
@@ -60,6 +60,7 @@ fi
 
 if [ $option == 4 ]
 then
+	cd $CLASS_GEN_DIR
 	echo "please give the path of the root directory"
 	read dirpath
 	for path in $dirpath/*;
@@ -87,6 +88,7 @@ fi
 
 if [ $option == 5 ]
 then
+	cd $CLASS_GEN_DIR
 	echo "please give the path of the root directory"
 	read dirpath
 	for path in $dirpath/*;
