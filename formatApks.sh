@@ -2,7 +2,8 @@
 
 echo "please give the path of the root directory"
 	read dirpath
-	count=3
+echo "starting number?"
+	read count
 	for apk in $dirpath/*.apk;
 		do
 			cd $dirpath
