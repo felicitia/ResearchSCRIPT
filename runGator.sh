@@ -4,7 +4,12 @@ source settings.sh
 
 cd $GATOR
 
-echo "please give the path of the root directory, the script will run CallbackSeqClient on all the apps under root directory"
+echo "1 - batch, 2 - run GATOR on one apk"
+read option
+
+if [ $option == 1 ]
+then
+	echo "please give the path of the root directory, the script will run CallbackSeqClient on all the apps under root directory"
 	read dirpath
 	for path in $dirpath/*;
 		do
@@ -17,3 +22,14 @@ echo "please give the path of the root directory, the script will run CallbackSe
 				done;
 		# break
 		done;
+fi
+
+if [ $option == 2 ]
+then
+	echo "enter apk path"
+	read apkPath
+	COMMAND="python3 runGatorOnApk.py ${apkPath} -client CallbackSeqClient -clientParam $(dirname "$apkPath")"
+					echo "running ${COMMAND}"
+					$COMMAND
+					echo "finished :)"
+fi
